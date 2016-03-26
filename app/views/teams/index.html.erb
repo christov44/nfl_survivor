@@ -1,0 +1,15 @@
+<h1> NFL Teams </h1>
+
+<a href="/home"> Home </a>
+
+<table>
+  <tr>
+    <th>Team Name</th>
+  </tr>
+  <br />
+  <% @teams.each do |team| %>
+    <tr>
+      <td> <%= team.name %> </td>
+    </tr>
+  <% end %>
+</table>
