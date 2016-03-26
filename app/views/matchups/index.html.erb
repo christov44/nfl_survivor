@@ -1,1 +1,15 @@
-Hello, Matchups!
+<h1> Matchups </h1>
+
+<%= link_to "Teams", teams_path %>
+
+<table>
+  <tr>
+    <th>Week</th>
+  </tr>
+  <br />
+  <% @matchups.each do |matchup| %>
+    <tr>
+      <td> <%= matchup.week %> </td>
+    </tr>
+  <% end %>
+</table>

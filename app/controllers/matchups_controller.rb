@@ -3,7 +3,7 @@ class MatchupsController < ApplicationController
   before_action :find_matchup, only: [:show, :edit, :update, :destroy]
 
   def index
-    @abilities = Matchup.all
+    @matchups = Matchup.all
   end
 
   def new
