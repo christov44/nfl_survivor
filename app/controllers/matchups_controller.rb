@@ -38,7 +38,7 @@ class MatchupsController < ApplicationController
   end
 
   def matchup_params
-    params.require(:matchup).permit(:week)
+    params.require(:matchup).permit(:week, :home_team_id, :away_team_id)
   end
-  
+
 end

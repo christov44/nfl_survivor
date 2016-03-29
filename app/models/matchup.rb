@@ -1,6 +1,5 @@
 class Matchup < ActiveRecord::Base
-  has_many :team_matchups
-  has_many :teams, through: :team_matchups
-
-  validates :week, uniqueness: {case_sensitive: false}
+  belongs_to :team
+  belongs_to :away_team, class_name: 'Team'
+  belongs_to :home_team, class_name: 'Team'
 end
