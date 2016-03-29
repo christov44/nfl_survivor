@@ -17,7 +17,7 @@ class TeamsController < ApplicationController
       redirect_to teams_path, notice: "Team was successfully created"
     else
       flash.now[:error] = "You screwed something up so team was not created"
-      render :edit
+      render :new
     end
   end
 

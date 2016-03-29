@@ -11,16 +11,24 @@ class MatchupsController < ApplicationController
   end
 
   def create
-    @matchup = Matchup.create(matchup_params)
-    redirect_to matchups_path
+    if @matchup = Matchup.create(matchup_params)
+      redirect_to matchups_path, notice: "Matchup was successfully created"
+    else
+      flash.now[:error] = "You screwed something up so matchup was not created"
+      render :new
+    end
   end
 
   def show
   end
 
   def update
-    @matchup.update(matchup_params)
-    redirect_to matchups_path
+    if @matchup.update(matchup_params)
+      redirect_to matchups_path, notice: "Matchup was successfully updated"
+    else
+      flash.now[:error] = "You screwed something up so matchup was not updated"
+      render :edit
+    end
   end
 
   def edit
