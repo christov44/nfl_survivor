@@ -1,15 +1,24 @@
 <h1> Matchups </h1>
 
-<%= link_to "Teams", teams_path %>
+<%= link_to "Teams", teams_path %> <br />
+
+<%= link_to "Create Matchup", new_matchup_path %> <br />
+
 
 <table>
   <tr>
     <th>Week</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
   </tr>
   <br />
   <% @matchups.each do |matchup| %>
     <tr>
-      <td> <%= matchup.week %> </td>
+      <td> <%= matchup.week_id %> </td>
+      <td> <%= matchup.home_team.try(:name) %> </td>
+      <td> <%= matchup.away_team.try(:name) %> </td>
+      <td> || <%= link_to "edit", edit_matchup_path(matchup) %> || </td>
+      <td> <%= link_to "delete", matchup_path(matchup), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
     </tr>
   <% end %>
 </table>

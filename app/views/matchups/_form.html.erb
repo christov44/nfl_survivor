@@ -1,0 +1,25 @@
+<%= form_for @matchup do |f| %>  
+
+<% if @matchup.errors.any? %>
+  <% @matchup.errors.full_messages.each do |message| %>
+    <p> <%= message %></p>
+  <% end %>
+<% end %> 
+
+<p>
+  <%= f.label :week, "Week" %> <br>
+  <%= collection_select(:matchup, :week_id, Week.all, :id, :number, prompt: true) %>
+</p>
+
+<p>
+  <%= f.label :home_team_id, "Home Team" %> <br>
+  <%= collection_select(:matchup, :home_team_id, Team.all, :id, :name, prompt: true) %>
+</p>
+
+<p>
+  <%= f.label :away_team_id, "Away Team" %> <br>
+  <%= collection_select(:matchup, :away_team_id, Team.all, :id, :name, prompt: true) %>
+</p>
+
+<%= f.submit %>
+<% end %>

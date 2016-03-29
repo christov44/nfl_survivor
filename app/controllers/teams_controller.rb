@@ -14,10 +14,10 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      redirect_to team_path(@team), notice: "team was successfully created, hope you know what you're doing"
+      redirect_to teams_path, notice: "Team was successfully created"
     else
       flash.now[:error] = "You screwed something up so team was not created"
-      render :new
+      render :edit
     end
   end
 
@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to team_path(@team), notice: "team was successfully updated"
+      redirect_to teams_path, notice: "Team was successfully updated"
     else
       flash.now[:error] = "You screwed something up so team was not updated"
       render :edit

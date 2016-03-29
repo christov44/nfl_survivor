@@ -12,7 +12,7 @@ class MatchupsController < ApplicationController
 
   def create
     @matchup = Matchup.create(matchup_params)
-    redirect_to matchup_path(@matchup)
+    redirect_to matchups_path
   end
 
   def show
@@ -20,7 +20,7 @@ class MatchupsController < ApplicationController
 
   def update
     @matchup.update(matchup_params)
-    redirect_to matchup_path(@matchup)
+    redirect_to matchups_path
   end
 
   def edit
@@ -28,7 +28,7 @@ class MatchupsController < ApplicationController
 
   def destroy
     @matchup.destroy
-    redirect_to abilities_path
+    redirect_to matchups_path
   end
 
   private
@@ -38,7 +38,7 @@ class MatchupsController < ApplicationController
   end
 
   def matchup_params
-    params.require(:matchup).permit(:week, :home_team_id, :away_team_id)
+    params.require(:matchup).permit(:home_team_id, :away_team_id, :week_id)
   end
 
 end
