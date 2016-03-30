@@ -1,6 +1,6 @@
 <h2> All Matchups for Week <%= @week.number %> : </h2>
 
 <% @week.matchups.each do |matchup| %>
-  <li>Home : <%= matchup.home_team.name %></li>
-  <li>Away : <%= matchup.away_team.name %> </li> <br>
+  <li>Home : <%= matchup.home_team.name %>
+  <li>Away : <%= matchup.away_team.name %>
 <% end %>
