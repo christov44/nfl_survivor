@@ -1,0 +1,12 @@
+<h1> All Weeks of the Season </h1>
+
+<table>
+  <tr>
+    <th>Week Number:</th>
+    <th>
+      <% @weeks.each do |week| %>
+        <%= link_to week.number, week_path(week) %>
+      <% end %>
+    </th>
+  </tr>
+</table>

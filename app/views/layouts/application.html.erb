@@ -8,6 +8,13 @@
 </head>
 <body>
 
+  <nav>
+    <p> <a href="/home">Home</a> <p>
+    <p> <%= link_to "Teams", teams_path %> </p>
+    <p> <%= link_to "Weeks", weeks_path %> </p>
+    <p> <%= link_to "Matchups", matchups_path %> </p>
+  </nav>
+
   <% flash.each do |name, msg| %>
     <div class=" <%= name %>">
       <%= msg %>

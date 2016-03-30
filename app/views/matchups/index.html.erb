@@ -1,9 +1,11 @@
-<h1> Matchups </h1>
+<h1> All Matchups </h1>
 
-<%= link_to "Teams", teams_path %> <br />
+<p> <%= link_to "Create Matchup", new_matchup_path %> </p>
 
-<%= link_to "Create Matchup", new_matchup_path %> <br />
-
+Week
+<% (1..17).each do |i| %>
+ <%= i %> |
+<% end %> <br>
 
 <table>
   <tr>
