@@ -1,6 +1,10 @@
 class MatchupsController < ApplicationController
 
   before_action :find_matchup, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only: [:new, :edit, :destroy]
+  before_action :authenticate_user!
+
+
 
   def index
     @matchups = Matchup.all
