@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :matchups
   resources :weeks
   resources :picks
+  resources :admins
 
   resources :home
   root "home#index"

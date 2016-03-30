@@ -1,6 +1,6 @@
 This is an NFL Survivors Pool
 
-* Each pool member chooses one NFL team each week. Picks are made 'straight up', not using a point spread system.
+* Each pool member chooses one NFL team each week. Picks are made 'straight up', not using a point spread system
 
 * Each pool member gets two lives, and loses a life for each incorrect pick
 
