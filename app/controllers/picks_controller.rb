@@ -10,6 +10,18 @@ class PicksController < ApplicationController
     @pick = Pick.new
   end
 
+  def set_pick
+    binding.pry
+    @pick = Pick.new(set_pick_params)
+
+    if @pick.save
+      redirect_to picks_path, notice: "pick was successfully created"
+    else
+      flash.now[:error] = "You have already picked either that team or that week"
+      render :new
+    end
+  end
+
   def create
     @pick = Pick.new(pick_params)
 
@@ -50,7 +62,10 @@ class PicksController < ApplicationController
   end
 
   def pick_params
-    params.require(:pick).permit(:team_id, :week_id)
+    params.require(:pick).permit(:team_id, :week_id, :user_id)
   end
 
+  def set_pick_params
+    params.permit(:team_id, :week_id, :user_id)
+  end
 end

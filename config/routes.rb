@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   resources :teams
   resources :matchups
   resources :weeks
-  resources :picks
+  resources :picks do
+    collection  do 
+      post 'set_pick'
+    end
+  end
   resources :admins
+  resources :users
 
   resources :home
   root "home#index"

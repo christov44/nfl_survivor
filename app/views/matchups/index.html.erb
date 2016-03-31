@@ -2,10 +2,16 @@
 
 <p> <%= link_to "Create Matchup", new_matchup_path %> </p>
 
-Week
-<% (1..17).each do |i| %>
- <%= i %> |
-<% end %> <br>
+<table>
+  <tr>
+    <th>Week Number:</th>
+    <th>
+      <% @weeks.each do |week| %>
+        <%= link_to week.number, week_path(week) %>
+      <% end %>
+    </th>
+  </tr>
+</table>
 
 <table>
   <tr>
