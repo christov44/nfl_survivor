@@ -15,7 +15,7 @@
       <td> <%= pick.week.number %> </td>
       <td> <%= pick.team.name %> </td>
       <td> || <%= link_to "edit", edit_pick_path(pick) %> || </td>
-      <td> <%= link_to "delete", pick_path(pick), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
+      <td> <%= link_to "delete", pick_path(pick), method: :delete %></td> <!--add this in after the :delete if you want to have an alert before deleting: , data: {confirm: "Are you sure you want to delete?"} -->
     </tr>
   <% end %>
 </table>

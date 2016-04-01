@@ -3,8 +3,6 @@ class Pick < ActiveRecord::Base
   belongs_to :week
   belongs_to :user
 
-  # validates :team, uniqueness: true
-  # validates :week, uniqueness: true
-  # validates :team, presence: true
-  # validates :week, presence: true
+  validates :team_id, uniqueness: true
+  validates :week_id, uniqueness: true
 end

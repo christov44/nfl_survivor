@@ -13,7 +13,9 @@ class MatchupsController < ApplicationController
   end
 
   def create
-    if @matchup = Matchup.create(matchup_params)
+    @matchup = Matchup.new(matchup_params)
+
+    if @matchup.save
       redirect_to matchups_path, notice: "Matchup was successfully created"
     else
       flash.now[:error] = "You screwed something up so matchup was not created"
