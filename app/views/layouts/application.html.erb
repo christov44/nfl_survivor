@@ -8,28 +8,14 @@
 </head>
 <body>
 
-  <% if user_signed_in? %>
-    <nav> <%= "User logged in as <#{current_user.email}>" %> || <%= link_to "Edit Profile", edit_user_registration_path  %> || <%= link_to "Logout", destroy_user_session_path, :method => :delete  %> <br>
-      <a href="/home">Home</a> <br>
-      <%= link_to "Matchups", matchups_path %> <br> 
-      <%= link_to "Your Picks", picks_path %>
-     </nav>
-  <% else %>
-    <nav> <%= link_to "User Login", new_user_session_path %> || <%= link_to "User Register", new_user_registration_path %> </nav>
-  <% end %>
-
-  <br> <br> <br>
-
-  <% if admin_signed_in? %>
-      <footer> 
-        <%= "Admin logged in as <#{current_admin.email}>" %> || <%= link_to "Edit Profile", edit_admin_registration_path  %> || <%= link_to "Logout", destroy_admin_session_path, :method => :delete  %> <br>
-        <%= link_to "Admin Portal", admins_path %> <br>
-        <%= link_to "Teams", teams_path %> <br>
-        <%= link_to "Weeks", weeks_path %> <br>
-      </footer>
+  <nav>
+    <a href="/home">Home</a> ||
+    <% if user_signed_in? %>
+      <%= "User logged in as <#{current_user.email}>" %> || <%= link_to "Edit Profile", edit_user_registration_path  %> || <%= link_to "Logout", destroy_user_session_path, :method => :delete  %> <br>
     <% else %>
-      <footer> <%= link_to "Admin Login", new_admin_session_path %> </footer>
-  <% end %>
+      <%= link_to "User Login", new_user_session_path %> || <%= link_to "User Register", new_user_registration_path %>
+    <% end %>
+  </nav>
 
   <% flash.each do |name, msg| %>
     <div class=" <%= name %>">

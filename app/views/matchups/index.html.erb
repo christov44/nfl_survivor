@@ -1,13 +1,16 @@
 <h1> All Matchups </h1>
 
+<p> <%= link_to "Back To Admin Portal", admins_path %> </p> <br>
+
+
 <p> <%= link_to "Create Matchup", new_matchup_path %> </p>
 
 <table>
   <tr>
-    <th>Week Number:</th>
+    <th>Filter by Week:</th>
     <th>
       <% @weeks.each do |week| %>
-        <%= link_to week.number, week_path(week) %>
+        <a href="#"><%= week.number %></a>
       <% end %>
     </th>
   </tr>

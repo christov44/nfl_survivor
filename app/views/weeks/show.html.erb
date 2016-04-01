@@ -1,3 +1,6 @@
+<p> <%= link_to "View Your Picks", picks_path %> </p>
+<p> <%= link_to "Select a Different Week", weeks_path %> </p>
+
 <h2> All Matchups for Week <%= @week.number %> : </h2>
 
 <% @week.matchups.each do |matchup| %>
