@@ -10,12 +10,11 @@ class PicksController < ApplicationController
     @pick = Pick.new
   end
 
-  def set_pick
-    binding.pry
+  def set_pick #Had to create a custom method in order to Post a new pick within the weeks View
     @pick = Pick.new(set_pick_params)
 
     if @pick.save
-      redirect_to picks_path, notice: "pick was successfully created"
+      redirect_to picks_path, notice: "You just picked someone"
     else
       flash.now[:error] = "You have already picked either that team or that week"
       render :new
@@ -26,7 +25,7 @@ class PicksController < ApplicationController
     @pick = Pick.new(pick_params)
 
     if @pick.save
-      redirect_to picks_path, notice: "pick was successfully created"
+      redirect_to picks_path, notice: "You just picked someone"
     else
       flash.now[:error] = "You have already picked either that team or that week"
       render :new
@@ -65,7 +64,7 @@ class PicksController < ApplicationController
     params.require(:pick).permit(:team_id, :week_id, :user_id)
   end
 
-  def set_pick_params
+  def set_pick_params #Custom private method to ensure the custom method actually posted to the db
     params.permit(:team_id, :week_id, :user_id)
   end
 end
