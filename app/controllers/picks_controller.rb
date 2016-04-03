@@ -16,8 +16,7 @@ class PicksController < ApplicationController
     if @pick.save
       redirect_to picks_path, notice: "You just picked someone"
     else
-      flash.now[:error] = "You have already picked either that team or that week"
-      render :new
+      redirect_to weeks_path, notice: "You have already picked that team or week"
     end
   end
 

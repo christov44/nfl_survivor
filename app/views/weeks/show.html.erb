@@ -6,7 +6,7 @@
 <% @week.matchups.each do |matchup| %>
   <h3>
     <li>Home : <%= matchup.home_team.name %> <%= link_to "Pick", set_pick_picks_path(:week_id => @week.id, :user_id => current_user.id, :team_id => matchup.home_team.id), method: :post %> </li>
-    <li>Away : <%= matchup.away_team.name %></li>
+    <li>Away : <%= matchup.away_team.name %> <%= link_to "Pick", set_pick_picks_path(:week_id => @week.id, :user_id => current_user.id, :team_id => matchup.away_team.id), method: :post %> </li>
   </h3>
 <% end %>
 

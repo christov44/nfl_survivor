@@ -30,7 +30,10 @@
       <td> <%= matchup.home_team.try(:name) %> </td>
       <td> <%= matchup.away_team.try(:name) %> </td>
       <td> || <%= link_to "edit", edit_matchup_path(matchup) %> || </td>
-      <td> <%= link_to "delete", matchup_path(matchup), method: :delete, data: {confirm: "Are you sure you want to delete?"} %></td>
+      <td> <%= link_to "delete", matchup_path(matchup), method: :delete %></td>
     </tr>
   <% end %>
 </table>
+
+<!-- Will put this back into the delete link later -->
+<!-- , data: {confirm: "Are you sure you want to delete?"} -->

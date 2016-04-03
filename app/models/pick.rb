@@ -3,6 +3,7 @@ class Pick < ActiveRecord::Base
   belongs_to :week
   belongs_to :user
 
-  validates :team_id, uniqueness: true
-  validates :week_id, uniqueness: true
+  validates_uniqueness_of :team_id, scope: [:user_id]
+  validates_uniqueness_of :week_id, scope: [:user_id]
+
 end
