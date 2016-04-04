@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
     end
 
     def give_user_lives
-      User.last.life_count = 2
+      current_user.life_count = 2
     end
 end
