@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_create :create_blank_picks
+  # after_create :give_user_lives
 
   private
     def create_blank_picks #At some point I could just go clear the Week's db and make the week_ids and week_numbers line up
@@ -16,4 +17,7 @@ class User < ActiveRecord::Base
         Pick.create(user_id: self.id, week_id: week)
       end
     end
+
+    # def give_user_lives
+    # end
 end

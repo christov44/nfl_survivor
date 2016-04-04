@@ -8,7 +8,6 @@
 <%= link_to "Teams", teams_path %> <br>
 <%= link_to "Matchups", matchups_path %> <br>
 <%= link_to "Victors", victors_path %> <br>
-<%= link_to "All Members' Picks", picks_path %>
 
 <br> <br> <br>
 
@@ -21,10 +20,8 @@
   <tr>
     <td> <%= user.email %> </td>
     <td> <%= user.life_count %> </td>
+    <td> <a href="#">Add Life</a> </td>
+    <td> <a href="#">Remove Life</a> </td>
   </tr>
   <% end%> 
 </table>
-
-
-
-
