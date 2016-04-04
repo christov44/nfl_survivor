@@ -1,16 +1,49 @@
-<h1> All Weeks of the Season </h1>
+<p> <%= link_to "Your Picks",  picks_path %> </p>
+
+
+<h1> All Members' Picks </h1>
 
 <table>
-  <tr>
-    <th>Week Number:</th>
-    <th>
+
+    <tr>
+      <th></th>
       <% @weeks.each do |week| %>
-        <%= link_to week.number, week_path(week) %>
+        <td> <%= link_to "Week #{week.number}", week_path(week) %> </td>
       <% end %>
-    </th>
-  </tr>
+    </tr>
+
+    <tr>
+      <th>User:</th>
+    </tr>
+
+    <% @users.each do |user| %> <!-- Need to figure out how to loop this and I'm not sure why 'first' is needed -->
+      <tr>
+        <td> <%= user.email %> </td>
+        <td> <%= user.picks.where(week_id: 1).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 2).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 3).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 4).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 5).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 7).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 8).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 9).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 10).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 11).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 12).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 13).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 14).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 15).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 16).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 17).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 18).first.team.try(:name) %> </td>
+      </tr>
+    <% end %>
+
 </table>
+ 
 
-<br> <br> <br> 
 
-<p> <%= link_to "View Your Picks", picks_path %> </p>
+
+<!-- I want to display all user's picks for each week, if one doesn't exist it should say N/A -->
+
+

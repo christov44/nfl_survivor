@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
   <h1> Hello, <%= "<#{current_user.email}>" %> </h1>
 
-  <p> <%= link_to "Make your picks",  weeks_path %> </p>
-  <p> <%= link_to "Your Picks", picks_path %> </p>
+  <p> <%= link_to "Make Your Picks",  picks_path %> </p>
+
+  <p> <%= link_to "All Members' Picks", weeks_path %> </p>
+
 <% else %>
   <h1>You must sign in above to continue </h1>
   <p> Alternatively, go to the <%= link_to "Admin Portal", admins_path %> like a boss </p>

@@ -3,22 +3,35 @@ class PicksController < ApplicationController
   before_action :find_pick, only: [:show, :edit, :update, :destroy]
 
   def index
-    @picks = Pick.all
+    @picks = current_user.picks
+    @weeks = Week.all
   end
 
   def new
     @pick = Pick.new
   end
 
-  def set_pick #Had to create a custom method in order to Post a new pick within the weeks View
-    @pick = Pick.new(set_pick_params)
+  def set_pick
 
-    if @pick.save
-      redirect_to picks_path, notice: "You just picked someone"
+    if @pick.update(set_pick_params)
+      redirect_to picks_path, notice: "Your pick was successfully updated"
     else
-      redirect_to weeks_path, notice: "You have already picked that team or week"
+      flash.now[:error] = "You screwed something up so your pick was not updated"
+      render :edit
     end
+
   end
+
+
+  # def set_pick #Had to create a custom method in order to Post a new pick within the weeks View
+  #   @pick = Pick.new(set_pick_params)
+
+  #   if @pick.save
+  #     redirect_to picks_path, notice: "You just picked someone"
+  #   else
+  #     redirect_to weeks_path, notice: "You have already picked that team or week"
+  #   end
+  # end
 
   def create
     @pick = Pick.new(pick_params)
@@ -35,8 +48,6 @@ class PicksController < ApplicationController
   end
 
   def update #Update is not working, because it says that pick or week is already taken
-    @pick = Pick.new(pick_params)
-
     if @pick.update(pick_params)
       redirect_to picks_path, notice: "Your pick was successfully updated"
     else

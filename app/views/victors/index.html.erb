@@ -1,0 +1,21 @@
+<h1> The Winning Teams </h1>
+
+<%= link_to "Back To Admin Portal", admins_path %> <br> <br> <br>
+
+<%= link_to "Input a Victor", new_victor_path %> <br>
+
+<table>
+  <tr>
+    <th>Week</th>
+    <th>Team</th>
+  </tr>
+  <br />
+  <% @victors.each do |victor| %>
+    <tr>
+      <td> <%= victor.week.number %> </td>
+      <td> <%= victor.team.name %> </td>
+      <td> || <%= link_to "edit", edit_victor_path(victor) %> || </td>
+      <td> <%= link_to "delete", victor_path(victor), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>

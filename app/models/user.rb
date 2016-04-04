@@ -4,4 +4,16 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :create_blank_picks
+
+  private
+    def create_blank_picks #At some point I could just go clear the Week's db and make the week_ids and week_numbers line up
+      (1..5).each do |week|
+        Pick.create(user_id: self.id, week_id: week)
+      end
+      (7..18).each do |week|
+        Pick.create(user_id: self.id, week_id: week)
+      end
+    end
 end

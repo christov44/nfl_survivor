@@ -1,21 +1,37 @@
-<h1> Your Picks </h1>
 
-<p> <%= link_to "Quick Pick", new_pick_path %> </p>
-<p> <%= link_to "View the Matchups",  weeks_path %> </p>
-
-
+<h2> View the Matchups: </h2>
 <table>
   <tr>
-    <th>Week</th>
-    <th>Team</th>
-  </tr>
-  <br />
+    <th>Week:</th>
+    <% @weeks.each do |week| %>
+      <td> <%= link_to week.number, week_path(week) %> </td>
+    <% end %>
+</table>
+
+<p> <%= link_to "All Members' Picks", weeks_path %> </p>
+
+<h2> Your Picks: </h2>
+
+<table>
+
+  <tr>
+    <th>Week:</th>
+    <th>Your Pick:</th>
+  </tr> <br>
+
   <% @picks.each do |pick| %>
     <tr>
       <td> <%= pick.week.number %> </td>
-      <td> <%= pick.team.name %> </td>
-      <td> || <%= link_to "edit", edit_pick_path(pick) %> || </td>
-      <td> <%= link_to "delete", pick_path(pick), method: :delete %></td> <!--add this in after the :delete if you want to have an alert before deleting: , data: {confirm: "Are you sure you want to delete?"} -->
+      <% if pick.team_id.present? %>
+        <td> <%= pick.team.try(:name) %> </td>
+        <td> <%= link_to "Edit", edit_pick_path(pick) %> </td>
+      <% else %> 
+        <td> <%= link_to "Pick Someone", edit_pick_path(pick) %> </td>
+      <% end %>
     </tr>
   <% end %>
+
 </table>
+
+
+

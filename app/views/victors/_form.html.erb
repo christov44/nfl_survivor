@@ -1,0 +1,20 @@
+<%= form_for @victor do |f| %>  
+
+<% if @victor.errors.any? %>
+  <% @victor.errors.full_messages.each do |message| %>
+    <p> <%= message %></p>
+  <% end %>
+<% end %> 
+
+<p>
+  <%= f.label :week, "Week" %> <br>
+  <%= collection_select(:victor, :week_id, Week.all, :id, :number, prompt: true) %>
+</p>
+
+<p>
+  <%= f.label :team, "Team" %> <br>
+  <%= collection_select(:victor, :team_id, Team.all, :id, :name, prompt: true) %>
+</p>
+
+<%= f.submit %>
+<% end %>
