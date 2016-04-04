@@ -24,6 +24,7 @@
         <td> <%= user.picks.where(week_id: 3).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 4).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 5).first.team.try(:name) %> </td>
+        <td> <%= user.picks.where(week_id: 6).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 7).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 8).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 9).first.team.try(:name) %> </td>
@@ -35,7 +36,6 @@
         <td> <%= user.picks.where(week_id: 15).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 16).first.team.try(:name) %> </td>
         <td> <%= user.picks.where(week_id: 17).first.team.try(:name) %> </td>
-        <td> <%= user.picks.where(week_id: 18).first.team.try(:name) %> </td>
       </tr>
     <% end %>
 
