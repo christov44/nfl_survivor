@@ -1,6 +1,6 @@
 <h1> Hello <%= "<#{current_admin.email}>" %>, welcome to the admin portal! </h1>
 
-<%= link_to "Edit Profile", edit_admin_registration_path  %> 
+<%= link_to "Edit Profile", edit_admin_registration_path  %> ||
 <%= link_to "Logout", destroy_admin_session_path, :method => :delete  %>
 
 <br> <br> <br>
@@ -9,6 +9,22 @@
 <%= link_to "Matchups", matchups_path %> <br>
 <%= link_to "Victors", victors_path %> <br>
 <%= link_to "All Members' Picks", picks_path %>
+
+<br> <br> <br>
+
+<table> 
+  <tr>
+    <th>User Name</th>
+    <th>Lives Left</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td> <%= user.email %> </td>
+    <td> <%= user.life_count %> </td>
+  </tr>
+  <% end%> 
+</table>
+
 
 
 
