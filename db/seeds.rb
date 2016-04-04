@@ -20,3 +20,6 @@ Team.create(name: "New York Jets")
  #  name: "Green Bay Packers", name: "Minnesota Vikings", name: "Atlanta Falcons", name: "Carolina Panthers", name: "New Orleans Saints", name: "Tampa Bay Buccaneers", 
  #  name: "Dallas Cowboys", name: "New York Giants", name: "Philadelphia Eagles", name: "Washington Redskins", name: "Arizona Cardinals", name: "Los Angeles Rams", 
  #  name: "San Francisco 49ers", name: "Seattle Seahawks")
+
+User.first.life_count = 2
+User.last.life_count = 2
